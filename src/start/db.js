@@ -1,18 +1,17 @@
-const mongoose = require("mongoose");
+import mongoose, { connect } from "mongoose";
 
-DATABASE_NAME = process.env.DATABASE_NAME || "docs-development";
+const DATABASE_NAME = process.env.DATABASE_NAME || "docs-development";
 
-DB_URL = `mongodb+srv://docs:docs@cluster0.vs5gv6z.mongodb.net/${DATABASE_NAME}?retryWrites=true&w=majority`;
+const DB_URL = `mongodb+srv://docs:docs@cluster0.vs5gv6z.mongodb.net/${DATABASE_NAME}?retryWrites=true&w=majority`;
 
-module.exports = function () {
-  mongoose
-    .connect(DB_URL)
+export default function () {
+  connect(DB_URL)
     .then(() => {
       console.log("Database connected successfully");
     })
     .catch((err) => {
       console.log(err);
     });
-};
+}
 
-module.exports.database = mongoose;
+export const database = mongoose;

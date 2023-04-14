@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-module.exports.auth = async (req, res, next) => {
+import jwt from "jsonwebtoken";
+export async function auth(req, res, next) {
   try {
     const token = req.header("x-auth-token");
 
@@ -16,4 +16,4 @@ module.exports.auth = async (req, res, next) => {
   } catch (err) {
     res.status(401).json({ msg: "Token is not valid" });
   }
-};
+}

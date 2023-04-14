@@ -1,9 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const auth = require("../routes/auth.route");
+import express from "express";
+import cors from "cors";
+import auth from "../routes/auth.route.js";
 
-module.exports = function (app) {
+export default function (app) {
   app.use(express.json());
   app.use(cors());
   app.use("/auth", auth);
-};
+}
