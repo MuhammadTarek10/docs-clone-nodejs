@@ -7,7 +7,7 @@ startDB();
 const app = express();
 startRoutes(app);
 
-const PORT = process.env.PORT | 3001;
+const PORT = process.env.PORT || 3001;
 
 const server = startSocketServer(app);
 server.listen(PORT, "0.0.0.0", () => {
